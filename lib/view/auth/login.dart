@@ -8,7 +8,7 @@ import '../../utilis/app_images.dart';
 import '../../utilis/app_preferences.dart';
 import '../../utilis/app_routes.dart';
 import '../../utilis/app_text_styles.dart';
-import '../../widgets/dialogues/message_dialogue.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -50,6 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget leftSide(){
     return Container(
       decoration: BoxDecoration(
+        image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.black000000.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -61,8 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(),
 
           Column(children: [
-            Image.asset(AppImages.iconUnity,color: AppColors.whiteFFFFFF,height: size!.width*0.15,),
-            Text(AppConstants.effortlessAttendanceTitle,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
+            Image.asset(AppImages.iconBus,color: AppColors.whiteFFFFFF,height: size!.width*0.15,),
+            Text(AppConstants.leftTitle,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: size!.width*0.052),
               child: Text(AppConstants.authDescription,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w500),textAlign: TextAlign.center,),
@@ -88,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget rightSide(){
     return Container(
-      height: 480,
+      height: 560,
       margin: EdgeInsets.symmetric(horizontal: size!.width*0.07),
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.grey3B3B3B.withOpacity(0.15),width: 1,),
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
         padding:  EdgeInsets.symmetric(horizontal: size!.width*0.04),
         child: ListView(children: [
           const SizedBox(height: 40,),
-          Image.asset(AppImages.iconLogo,height: size!.height*0.08,),
+          Image.asset(AppImages.iconLogo,height: size!.height*0.15,),
           const SizedBox(height: 10,),
           Text(AppConstants.welcome,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 18, weight: FontWeight.w600),textAlign: TextAlign.center),
           Text(AppConstants.loginDescription,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 13, weight: FontWeight.w500),textAlign: TextAlign.center),

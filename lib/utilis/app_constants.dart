@@ -1,8 +1,8 @@
 
 class AppConstants{
 
-  static String effortlessAttendanceTitle='Effortless Attendance Management';
-  static String authDescription='Transform attendance management, boost productivity, and optimize workforce operations with our seamless solution.';
+  static String leftTitle='JourneyMapper, Track Your Bus, Live!';
+  static String authDescription='On Time, Every Time. Navigate Your Commute Hassle-Free . Effortlessly Navigate Your Commute with Real-Time Bus Tracking!';
   static String allRightReserved='All Rights Reserved.';
   static String authUnity=' ${DateTime.now().year} Unity.';
 

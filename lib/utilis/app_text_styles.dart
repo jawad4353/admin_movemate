@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:unity_web_app/utilis/app_fonts.dart';
 import 'app_colors.dart';
+import 'app_fonts.dart';
 
 class AppTextStyles{
 

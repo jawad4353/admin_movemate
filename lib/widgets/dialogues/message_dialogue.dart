@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:unity_web_app/utilis/app_text_styles.dart';
 import '../../utilis/app_colors.dart';
 import '../../utilis/app_images.dart';
+import '../../utilis/app_text_styles.dart';
 
 class MessageDialogue extends StatefulWidget {
   final String title;

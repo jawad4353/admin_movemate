@@ -3,7 +3,7 @@ import '../splash_screen.dart';
 import '../view/auth/forgot_password.dart';
 import '../view/auth/login.dart';
 import '../view/auth/reset_password.dart';
-import '../view/bottom_screen.dart';
+
 
 
 class Routes{
@@ -19,6 +19,6 @@ class Routes{
     loginScreen: (context) => const LoginScreen(),
     forgotPassword: (context) => const ForgotPassword(),
     resetPassword: (context) => const ResetPassword(),
-    bottomScreen: (context) => const BottomScreen(),
+    //bottomScreen: (context) => const BottomScreen(),
   };
 }

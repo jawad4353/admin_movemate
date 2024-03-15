@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../../utilis/app_colors.dart';
 import '../../utilis/app_constants.dart';
 import '../../utilis/app_images.dart';
@@ -35,6 +36,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget leftSide(){
     return Container(
       decoration: BoxDecoration(
+          image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.black000000.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -46,8 +48,8 @@ class _ResetPasswordState extends State<ResetPassword> {
           const SizedBox(),
 
           Column(children: [
-            Image.asset(AppImages.iconUnity,color: AppColors.whiteFFFFFF,height: size!.width*0.15,),
-            Text(AppConstants.effortlessAttendanceTitle,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
+            Image.asset(AppImages.iconBus,color: AppColors.whiteFFFFFF,height: size!.width*0.15,),
+            Text(AppConstants.leftTitle,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: size!.width*0.052),
               child: Text(AppConstants.authDescription,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w500),textAlign: TextAlign.center,),

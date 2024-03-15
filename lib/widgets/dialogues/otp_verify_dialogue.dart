@@ -1,19 +1,12 @@
 import 'dart:async';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:pinput/pinput.dart';
-import 'package:unity_web_app/main.dart';
-import 'package:unity_web_app/utilis/app_constants.dart';
-import 'package:unity_web_app/utilis/app_preferences.dart';
-import 'package:unity_web_app/utilis/app_text_styles.dart';
-import 'package:unity_web_app/view_model/reset_password_bloc/reset_password_bloc.dart';
-import 'package:unity_web_app/view_model/verify_otp_bloc/verify_otp_bloc.dart';
-import '../../network/api_params.dart';
 import '../../utilis/app_colors.dart';
+import '../../utilis/app_constants.dart';
 import '../../utilis/app_images.dart';
-import '../../view_model/api_calls.dart';
-import '../date_formatting.dart';
+import '../../utilis/app_text_styles.dart';
+import 'date_formatting.dart';
 
 
 
@@ -117,7 +110,6 @@ class _OTPDialogState extends State<OTPDialog> {
                                 if(_otpController.text.length!=4){
                                   return;
                                 }
-                                context.read<VerifyOtpBloc>().add(VerifyOtpApiEvent({Params.email:widget.check,Params.verifyOtp:_otpController.text},context));
 
                               },
                               child: Text(AppConstants.verify,style:  AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w600),textAlign: TextAlign.center),
@@ -136,11 +128,11 @@ class _OTPDialogState extends State<OTPDialog> {
                             return const Text('');
                           }
                           return  snap.data==0 ?  TextButton(onPressed: () async {
-                            bool result=await  ApiCalls.sendOtp(map: {Params.email:widget.check});
-                            if(result){
-                              _remainingSeconds=120;
-                              _startTimer();
-                            }
+                           // bool result=await  ApiCalls.sendOtp(map: {Params.email:widget.check});
+                           //  if(result){
+                           //    _remainingSeconds=120;
+                           //    _startTimer();
+                           //  }
 
                           }, child: Text( AppConstants.requestAgain,style: AppTextStyles.gotham(color:  AppColors.primary, fontSize: 13, weight: FontWeight.w600),)):const Text('');
                         })
