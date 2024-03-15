@@ -40,7 +40,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [AppColors.blue1E85FF.withOpacity(0.8),AppColors.blue659AD9,AppColors.blue85B8F3,AppColors.blue659AD9,AppColors.blue1E85FF.withOpacity(0.8)])
+              colors: [AppColors.primary.withOpacity(0.8),AppColors.primary.withOpacity(0.8),AppColors.lightGreen])
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,6 +55,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               child: Text(AppConstants.authDescription,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w500),textAlign: TextAlign.center,),
             ),
           ],),
+          SizedBox(height: size!.height*0.13,),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: Row(
@@ -75,17 +76,17 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   Widget rightSide(){
     return Container(
-      height: 480,
+      height: 560,
       margin: EdgeInsets.symmetric(horizontal: size!.width*0.07),
       decoration: BoxDecoration(
-          border: Border.all(color: AppColors.grey3B3B3B.withOpacity(0.15),width: 1,),
+          border: Border.all(color: AppColors.primary.withOpacity(0.18),width: 2,),
           borderRadius: BorderRadius.circular(13)
       ),
       child: Padding(
         padding:  EdgeInsets.symmetric(horizontal: size!.width*0.04),
         child: ListView(children: [
           const SizedBox(height: 40,),
-          Image.asset(AppImages.iconLogo,height: size!.height*0.08,),
+          Image.asset(AppImages.iconLogo,height: size!.height*0.15,),
           const SizedBox(height: 10,),
           Text(AppConstants.resetPasswordHeading,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 18, weight: FontWeight.w600),textAlign: TextAlign.center),
           Text(AppConstants.resetPasswordDescription,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 13, weight: FontWeight.w500),textAlign: TextAlign.center),
@@ -100,7 +101,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             height: 45,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.blue1E85FF,
+                    backgroundColor: AppColors.primary,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))),
                 onPressed: (){
                   errorNewPassword=errorConfirmPassword='';

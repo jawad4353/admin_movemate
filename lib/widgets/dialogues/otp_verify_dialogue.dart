@@ -5,6 +5,7 @@ import 'package:pinput/pinput.dart';
 import '../../utilis/app_colors.dart';
 import '../../utilis/app_constants.dart';
 import '../../utilis/app_images.dart';
+import '../../utilis/app_routes.dart';
 import '../../utilis/app_text_styles.dart';
 import 'date_formatting.dart';
 
@@ -71,7 +72,7 @@ class _OTPDialogState extends State<OTPDialog> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(height: 20,),
-                    Image.asset(AppImages.iconLogo,height: 44,),
+                    Image.asset(AppImages.iconLogo,height: 80,),
                     const SizedBox(height: 10,),
                     Text(AppConstants.otpVerification,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 18, weight: FontWeight.w600),textAlign: TextAlign.center),
                     Text(AppConstants.otpVerifyDescription,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 13, weight: FontWeight.w500),textAlign: TextAlign.center),
@@ -110,7 +111,7 @@ class _OTPDialogState extends State<OTPDialog> {
                                 if(_otpController.text.length!=4){
                                   return;
                                 }
-
+                                  Navigator.pushNamed(context, Routes.resetPassword);
                               },
                               child: Text(AppConstants.verify,style:  AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w600),textAlign: TextAlign.center),
                             ),
