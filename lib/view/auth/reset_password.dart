@@ -36,7 +36,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget leftSide(){
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.black000000.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
+          //image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.black000000.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

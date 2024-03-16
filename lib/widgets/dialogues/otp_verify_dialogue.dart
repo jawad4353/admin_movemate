@@ -29,7 +29,7 @@ class _OTPDialogState extends State<OTPDialog> {
   late StreamController<int> _streamController;
   late StreamController<int> _requestAginController;
   int _remainingSeconds = 120;
-  final FocusNode _pinPutFocusNode = FocusNode();
+  //final FocusNode _pinPutFocusNode = FocusNode();
 
 
   @override

@@ -1,4 +1,6 @@
-import 'package:admin_movemate/widgets/dialogues/otp_verify_dialogue.dart';
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../utilis/app_colors.dart';
@@ -6,16 +8,16 @@ import '../../utilis/app_constants.dart';
 import '../../utilis/app_images.dart';
 import '../../utilis/app_routes.dart';
 import '../../utilis/app_text_styles.dart';
+import '../../widgets/dialogues/otp_verify_dialogue.dart';
 
-
-class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<ForgotPassword> createState() => _ForgotPasswordState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class _RegisterScreenState extends State<RegisterScreen> {
   Size ? size;
   TextEditingController emailController=TextEditingController();
   String errorEmail='';
@@ -35,7 +37,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget leftSide(){
     return Container(
       decoration: BoxDecoration(
-          //image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.primary.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
+        image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.primary.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -75,7 +77,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   Widget rightSide(){
     return Container(
-      height: 560,
+      height: 660,
       margin: EdgeInsets.symmetric(horizontal: size!.width*0.07),
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.primary.withOpacity(0.18),width: 2,),
@@ -87,10 +89,22 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           const SizedBox(height: 40,),
           Image.asset(AppImages.iconLogo,height: size!.height*0.15,),
           const SizedBox(height: 10,),
-          Text(AppConstants.forgotPasswordHeading,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 18, weight: FontWeight.w600),textAlign: TextAlign.center),
-          Text(AppConstants.forgotPasswordDescription,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 13, weight: FontWeight.w500),textAlign: TextAlign.center),
+          Text(AppConstants.registerTitle,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 18, weight: FontWeight.w600),textAlign: TextAlign.center),
+          Text(AppConstants.registerDescription,style:  AppTextStyles.raleWay(color: AppColors.black000000, fontSize: 13, weight: FontWeight.w500),textAlign: TextAlign.center),
           const SizedBox(height: 40,),
+          textField(fieldNumber:1 ,hintText:AppConstants.name,controller: emailController,formatter:FilteringTextInputFormatter.allow(
+            RegExp(r'[a-zA-Z0-9@._-]'),
+          )),
+          const SizedBox(height: 20,),
           textField(fieldNumber:1 ,hintText:AppConstants.emailAddress,controller: emailController,formatter:FilteringTextInputFormatter.allow(
+            RegExp(r'[a-zA-Z0-9@._-]'),
+          )),
+          const SizedBox(height: 20,),
+          textField(fieldNumber:1 ,hintText:AppConstants.mobileNumber,controller: emailController,formatter:FilteringTextInputFormatter.allow(
+            RegExp(r'[a-zA-Z0-9@._-]'),
+          )),
+          const SizedBox(height: 20,),
+          textField(fieldNumber:1 ,hintText:AppConstants.password,controller: emailController,formatter:FilteringTextInputFormatter.allow(
             RegExp(r'[a-zA-Z0-9@._-]'),
           )),
           SizedBox(height: 20,child: Text(' $errorEmail',style: AppTextStyles.gotham(color: AppColors.red, fontSize: 13, weight: FontWeight.w500),),),
@@ -115,7 +129,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   }
 
                   showDialog(context: context, builder: (context)=>const OTPDialog(check: 'a',phone: '',));
-                }, child: Text(AppConstants.submit,style:AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w600) ,)),
+                }, child: Text(AppConstants.registerTitle,style:AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w600) ,)),
           )
 
 

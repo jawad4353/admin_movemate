@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget leftSide(){
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.black000000.withOpacity(0.7), BlendMode.darken),fit: BoxFit.fill),
+        //image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.darken),fit: BoxFit.fill),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -62,8 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(),
 
           Column(children: [
-            Image.asset(AppImages.iconBus,color: AppColors.whiteFFFFFF,height: size!.width*0.15,),
-            Text(AppConstants.leftTitle,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
+            Image.asset(AppImages.iconBus,height: size!.width*0.15,),
+            Text(AppConstants.leftTitle,style: AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: size!.width*0.052),
               child: Text(AppConstants.authDescription,style: AppTextStyles.gotham(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w500),textAlign: TextAlign.center,),
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           SizedBox(height: 20,child: Text(' $errorPassword',style: AppTextStyles.gotham(color: AppColors.red, fontSize: 13, weight: FontWeight.w500),),),
           forgotPasswordRememberMe(),
-          const SizedBox(height: 40,),
+          const SizedBox(height: 20,),
           SizedBox(
             height: 45,
             child: ElevatedButton(
@@ -125,11 +125,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     backgroundColor: AppColors.primary,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))),
                 onPressed: (){
-
-
+                  Navigator.pushNamed(context, Routes.dashBoard);
                   if(emailController.text.isEmpty){
                     setState(() {errorEmail='Please enter email';});
-
                   }
 
                   if((emailController.text.length<5 || !emailController.text.endsWith('.com')) && emailController.text.isNotEmpty ){
@@ -147,8 +145,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 }, child: Text(AppConstants.login,style:AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 14, weight: FontWeight.w600) ,)),
           )
-
-
+, const SizedBox(height: 10,),
+          goToRegister(),
         ],),
       ),
     );
@@ -183,8 +181,6 @@ class _LoginScreenState extends State<LoginScreen> {
               borderRadius: BorderRadius.circular(5),
               borderSide: BorderSide(color: AppColors.grey3B3B3B.withOpacity(0.1),width: 1)
           ),
-
-
         ),
       ),
     );
@@ -207,5 +203,15 @@ class _LoginScreenState extends State<LoginScreen> {
       ],);
   }
 
+  Widget goToRegister(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(AppConstants.dontHaveAccount,style: AppTextStyles.raleWay(color: AppColors.black000000.withOpacity(0.8), fontSize: 13, weight: FontWeight.w400),),
+        TextButton(onPressed: (){
+          Navigator.pushNamed(context, Routes.registerScreen);
+        }, child: Text(AppConstants.registerTitle,style: AppTextStyles.raleWay(color: AppColors.primary, fontSize: 13, weight: FontWeight.w600),)),
+      ],);
+  }
 
 }

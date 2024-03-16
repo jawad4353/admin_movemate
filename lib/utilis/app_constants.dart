@@ -14,6 +14,7 @@ class AppConstants{
   static String password='Password';
   static String forgotPassword='Forgot Password?';
   static String rememberMe='Remember me';
+  static String dontHaveAccount="Don't have account ?";
 
   //forgot password
   static String forgotPasswordHeading='Forgot Password';
@@ -36,4 +37,11 @@ class AppConstants{
   static String requestAgain='Request Again';
   static String didntRecieveCode="Didn't recieve code ?";
   static String timeRemainig="Time Remainig";
+
+  //Regsiter
+  static String registerTitle='Register';
+  static String registerDescription="Join Us Today and Discover Limitless Possibilities";
+  static String name='Name';
+  static String mobileNumber='Mobile number';
+  static String universityIdCard='University card';
 }

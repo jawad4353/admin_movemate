@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     customizeEasyLoading();
     if(preferences.getString(AppPrefs.keyEmail)==null){
-      Timer(const Duration(milliseconds: 2300),()=>Navigator.pushNamed(context, Routes.loginScreen));
+      Timer(const Duration(milliseconds: 2300),()=>Navigator.pushNamed(context, Routes.dashBoard));
     }
     else{
       Timer(const Duration(milliseconds: 2300),()=>Navigator.pushNamed(context, Routes.bottomScreen));
