@@ -26,11 +26,10 @@ class DashBoard extends StatelessWidget{
         SizedBox(
           width: size!.width*0.12,
             child: leftMenu(context)),
-        Divider(),
+        const VerticalDivider(width: 1),
         Expanded(child: rightSide()),
       ],),
     );
-
   }
 
   Widget leftMenu(context) {
@@ -39,7 +38,10 @@ class DashBoard extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-              Image.asset(AppImages.iconLogo,height: 67,),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Image.asset(AppImages.iconLogo,height: 100,),
+              ),
           menuButton(title: 'DashBoard', icon: AppImages.iconHome, context: context),
           menuButton(title: 'Users', icon: AppImages.iconStudent, context: context),
           menuButton(title: 'Buses', icon: AppImages.iconBusr, context: context),
@@ -74,7 +76,11 @@ class DashBoard extends StatelessWidget{
 
   Widget rightSide() {
     return  Column(children: [
-      header()
+      header(),
+      const Divider(),
+      Container(
+        color: AppColors.lightGreen,
+          height:size!.height*0.91,child: listScreen[0])
     ],);
   }
 
@@ -112,6 +118,78 @@ class DashBoard extends StatelessWidget{
       ],),
     );
   }
+
+  //
+  // Widget recentUsers(){
+  //   return Container(
+  //     height: size!.height*0.78,
+  //     width: size!.width*0.58,
+  //     decoration: BoxDecoration(
+  //         color: Colors.white,
+  //         borderRadius: BorderRadius.circular(18),
+  //         boxShadow: [BoxShadow(color: Colors.grey,),]
+  //     ),
+  //     child:Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         SizedBox(height: 5,),
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //           children: [
+  //             Text('  Recent Orders',style: TextStyle(fontSize: size!.width*0.01,fontWeight: FontWeight.bold,color: AppColors.primary),),
+  //             const Text(''),
+  //             const Text(''),
+  //             const Text(''),
+  //             ElevatedButton(onPressed: (){}, child: Text('View All',style: TextStyle(fontSize: size!.width*0.01,fontWeight: FontWeight.bold,color: Colors.white),),),
+  //
+  //           ],),
+  //         Container(height: size!.height*0.73,
+  //             child: Column(children: [
+  //               SizedBox(height: size!.height*0.04,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //                 children: [
+  //                   Text('Name',style: TextStyle(fontSize: size!.width*0.01,fontWeight: FontWeight.bold),),
+  //                   Text(''),
+  //                   Text('Price',style: TextStyle(fontSize: size!.width*0.01,fontWeight: FontWeight.bold),),
+  //                   Text('Payement',style: TextStyle(fontSize: size!.width*0.01,fontWeight: FontWeight.bold),),
+  //                   Text('Status',style: TextStyle(fontSize: size!.width*0.01,fontWeight: FontWeight.bold),),
+  //
+  //                 ],),
+  //               SizedBox(height: size!.height*0.03,),
+  //               // StreamBuilder(
+  //               //   stream:FirebaseFirestore.instance.collection('orders').orderBy('date',descending: true).snapshots() ,
+  //               //   builder: (context,snapshot){
+  //               //     if (!snapshot.hasData) {
+  //               //       return SpinKitCircle(color:appcolor,);
+  //               //     }
+  //               //     var data=snapshot.data!.docs;
+  //               //     return data.isEmpty ? Center(child: Text('No Orders'),):ListView.builder(
+  //               //       itemCount:data.length ,
+  //               //       itemBuilder: (context,index){
+  //               //         dynamic date='${data[index]['date']}'.split(' ');
+  //               //         date=date[0];
+  //               //         return ListTile(
+  //               //           leading: Container(
+  //               //               width: 100,
+  //               //               height: 100,
+  //               //               clipBehavior: Clip.antiAlias,
+  //               //               decoration: BoxDecoration(
+  //               //                   shape: BoxShape.circle
+  //               //               ),
+  //               //               child: Image.network('${data[index]['profileurl']}')),
+  //               //           title: Text('${data[index]['name']}'),
+  //               //           subtitle: Text(date),
+  //               //         );
+  //               //       },
+  //               //     );
+  //               //   },
+  //               // ),
+  //             ],)
+  //         )
+  //       ],),
+  //   );
+  // }
 
 }
 
