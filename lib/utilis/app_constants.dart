@@ -44,4 +44,17 @@ class AppConstants{
   static String name='Name';
   static String mobileNumber='Mobile number';
   static String universityIdCard='University card';
+
+  //dashboard
+  static String verified='Verified';
+  static String pending='Pending';
+  static String total='Total';
+  static String unverifiedUsers='Unverified Users';
+  static String verifiedUsers='Verified Users';
+  static String unverifiedAdmins='Unverified Admins';
+  static String verifiedAdmins='Verified Admins';
+  static String unresolvedComplains='Unresolved Complains';
+  static String resolvedComplains='Resolved Complains';
+
+
 }
