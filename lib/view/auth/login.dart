@@ -39,16 +39,26 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     size=MediaQuery.of(context).size;
     return   Scaffold(
-      body: Row(children: [
-        Expanded(child: leftSide()),
-        Expanded(child: rightSide())
-      ],),
+      body:  SingleChildScrollView(
+        child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            leftSide(),
+            if(size!.width<700)
+              const SizedBox(height: 30,width: 30,),
+            rightSide(),
+            if(size!.width<700)
+              const SizedBox(height: 30,width: 30,),
+          ],),
+      ),
     );
   }
 
 
   Widget leftSide(){
     return Container(
+      height: size!.height,
+      width: size!.width<650 ? size!.width:size!.width*0.43,
       decoration: BoxDecoration(
         //image: DecorationImage(image: Image.network('https://source.unsplash.com/800x600/?bus').image,colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.darken),fit: BoxFit.fill),
           gradient: LinearGradient(
@@ -62,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(),
 
           Column(children: [
-            Image.asset(AppImages.iconBus,height: size!.width*0.15,),
+            Image.asset(AppImages.iconBus,height: size!.width<650 ? size!.width*0.32:size!.width*0.15),
             Text(AppConstants.leftTitle,style: AppTextStyles.raleWay(color: AppColors.whiteFFFFFF, fontSize: 24, weight: FontWeight.w500),textAlign: TextAlign.center,),
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: size!.width*0.052),
@@ -90,8 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget rightSide(){
     return Container(
-      height: 560,
-      margin: EdgeInsets.symmetric(horizontal: size!.width*0.07),
+      height: size!.height*0.8,
+      width:   size!.width<650 ? size!.width:size!.width*0.4,
+      margin: EdgeInsets.symmetric(horizontal: size!.width*0.07 ),
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.primary.withOpacity(0.18),width: 2,),
           borderRadius: BorderRadius.circular(13)

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../utilis/app_colors.dart';
 import '../../utilis/app_images.dart';
+import 'line_chart.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,8 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body:ListView(children: [
         topBoxes(),
-        pieCharts()
-
+        pieCharts(),
+        SizedBox(
+          width: size!.width*0.4,
+            height:size!.height*0.4,child: LineChart()),
       ],) ,
     );
   }

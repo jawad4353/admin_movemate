@@ -1,3 +1,5 @@
+import 'package:admin_movemate/main.dart';
+import 'package:admin_movemate/utilis/app_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import '../splash_screen.dart';
 import '../view/auth/forgot_password.dart';
@@ -25,7 +27,12 @@ class Routes{
     forgotPassword: (context) => const ForgotPassword(),
     resetPassword: (context) => const ResetPassword(),
     registerScreen: (context) => const RegisterScreen(),
-    dashBoard: (context) => DashBoard(),
+    dashBoard: (context) {
+      if(preferences.getString(AppPrefs.keyEmail)==null){
+        return const LoginScreen();
+      }
+     return  DashBoard();
+    },
 
   };
 }

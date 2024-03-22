@@ -30,6 +30,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: Routes.splashScreen,
       routes: Routes.routeMap,
+      navigatorObservers: [],
+
     );
   }
 }
